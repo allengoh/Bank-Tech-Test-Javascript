@@ -1,0 +1,23 @@
+{
+  "name": "bank-tech-test-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allengoh/Bank-Tech-Test-Javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allengoh/Bank-Tech-Test-Javascript/issues"
+  },
+  "homepage": "https://github.com/allengoh/Bank-Tech-Test-Javascript#readme",
+  "dependencies": {
+    "jest": "^29.3.1"
+  }
+}
