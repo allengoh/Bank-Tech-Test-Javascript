@@ -25,3 +25,18 @@ As a customer
 So I can keep track of my financial transactions and account balance
 I would like to be able to print out a statement
 ```
+
+### Design
+
+First, I created a single transaction class to hold a transaction as an object
+
+Sample code: 
+
+```javascript
+class SingleTransaction{
+
+};
+
+module.exports = SingleTransaction;
+```
+
