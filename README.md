@@ -28,15 +28,49 @@ I would like to be able to print out a statement
 
 ### Design
 
-First, I created a single transaction class to hold a transaction as an object
+This application will be based on the Model-View-Controller (MVC) design pattern.
+
+First, I create a BankAccount class that functions as the <bold>Model</bold>.
 
 Sample code: 
 
 ```javascript
-class SingleTransaction{
+class BankAccount {
 
 };
 
-module.exports = SingleTransaction;
+module.exports = BankAccount;
+```
+
+Then, I create a Statement class that functions as the <bold>View</bold>.
+
+Sample code:
+
+```javascript
+class Statement {
+
+  
+};
+
+module.exports = Statement;
+```
+
+Lastly, I create a Bank class that functions as the <bold>Controller</bold>.
+
+Sample code:
+
+```javascript
+import BankAccount from "./bankAccount"
+import Statement from "./statement"
+
+class Bank {
+  
+  //BankAccount would be the model
+  //Statement would be the view
+  constructor(model, view){
+    this.model = model;
+    this.view = view;  
+  }
+};
 ```
 
