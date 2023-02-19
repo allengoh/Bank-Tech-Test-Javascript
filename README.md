@@ -30,12 +30,25 @@ I would like to be able to print out a statement
 
 This application will be based on the Model-View-Controller (MVC) design pattern.
 
-First, I create a BankAccount class that functions as the <bold>Model</bold>.
+First, I create a BankAccount class that functions as the <bold>Model</bold>. This class would hold the data of all transactions occured.
 
 Sample code: 
 
 ```javascript
 class BankAccount {
+
+  constructor(balance = 0) {
+    this.allTransactions = [];
+    this.balance = balance;
+  };
+
+  deposit(amount, date = new Date()) {
+
+  };
+
+  withdraw(amount, date = new Date()) {
+
+  };
 
 };
 
