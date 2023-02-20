@@ -12,6 +12,11 @@ describe("Bank Account", () => {
     expect(bankAccount.balance).toBe(1000);
   });
 
+  it("constructs with an empty array of transactions", () => {
+    const bankAccount = new BankAccount();
+    expect(bankAccount.allTransactions).toEqual([]);
+  })
+
   
 
 });
