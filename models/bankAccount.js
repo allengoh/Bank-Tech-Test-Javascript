@@ -6,9 +6,12 @@ class BankAccount {
   };
 
   createTransaction(date, credit, debit) {
-    if(debit === "") {
-      this.balance += credit;
-    };
+      if(Number.isInteger(credit)) {
+        this.balance += credit;  
+      } else {
+        throw new Error("Please use an integer for credit."); 
+      }
+
     let transaction = {
       date: date,
       credit: credit,
