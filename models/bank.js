@@ -11,7 +11,15 @@ class Bank {
     let debit = "";
     this.bankAccount.createTransaction(formattedDate, credit, debit);
     console.log(`The amount of ${amount} has been successfully deposited on ${formattedDate}`);
-  }
+  };
+
+  withdraw(amount, date = new Date()) {
+    let formattedDate = date.toLocaleDateString("en-GB");
+    let credit = "";
+    let debit = amount;
+    this.bankAccount.createTransaction(formattedDate, credit, debit);
+    console.log(`The amount of ${amount} has been successfully withdrawn on ${formattedDate}`);
+  };
 };
 
 module.exports = Bank;
