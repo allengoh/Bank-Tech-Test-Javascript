@@ -42,7 +42,7 @@ describe("Bank Class", () => {
     expect(consoleSpy).toHaveBeenCalledWith("The amount of 500 has been successfully deposited on 10/12/2023");
   });
 
-  it("able to withdraw money", () => {
+  it("able to withdraw money with date of a transaction where it is a month with single digit", () => {
     const mockBankAccount = new BankAccount(1000);
     const bank = new Bank(mockBankAccount, mockStatement);
     const consoleSpy = jest.spyOn(console, "log");
