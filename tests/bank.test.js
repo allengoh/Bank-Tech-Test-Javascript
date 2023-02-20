@@ -58,6 +58,22 @@ describe("Bank Class", () => {
     expect(consoleSpy).toHaveBeenCalledWith("The amount of 300 has been successfully withdrawn on 09/11/2023");
   });
 
-  
+  it("prints statement", () => {
+    const mockBankAccount = {
+      allTransactions: [
+        { date: '01/01/2022', credit: 100, debit: '', balance: 100 },
+        { date: '02/01/2022', credit: '', debit: 50, balance: 50 },
+        { date: '03/01/2022', credit: 200, debit: '', balance: 250 },
+      ],
+      createTransaction: jest.fn(),
+    };
+    
+    const mockStatement = {
+      print: jest.fn(),
+    };
 
+    const bank = new Bank(mockBankAccount, mockStatement);
+    bank.printStatement();
+    expect(mockStatement.print).toHaveBeenCalledWith(mockBankAccount.allTransactions);
+  });
 });

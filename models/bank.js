@@ -42,6 +42,11 @@ class Bank {
     this.bankAccount.createTransaction(formattedDate, credit, debit);
     console.log(`The amount of ${amount} has been successfully withdrawn on ${formattedDate}`);
   };
+
+  printStatement() {
+    let transactions = this.bankAccount.allTransactions;
+    console.log(this.statement.print(transactions));
+  };
 };
 
 module.exports = Bank;
