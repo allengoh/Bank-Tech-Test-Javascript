@@ -17,7 +17,7 @@ describe("Bank Account", () => {
     expect(bankAccount.allTransactions).toEqual([]);
   });
 
-  it("able to create a transaction and stores it in the allTransactions array", () => {
+  it("able to create a credit transaction and stores it in the allTransactions array", () => {
     const bankAccount = new BankAccount();
     bankAccount.createTransaction("20/02/2023", 1000, "");
     expect(bankAccount.allTransactions).toEqual([{date: "20/02/2023", credit: 1000, debit: "", balance: 1000}]);
@@ -35,6 +35,13 @@ describe("Bank Account", () => {
     expect(() => bankAccount.createTransaction("20/02/2023", "", "not an integer")).toThrow("Please use an integer for credit or debit."); 
     expect(bankAccount.allTransactions).toHaveLength(0);
     expect(bankAccount.balance).toBe(1000);
+  });
+
+  it("throws an error if there are insufficient funds", () => {
+    const bankAccount = new BankAccount(0);
+    expect(() => bankAccount.createTransaction("20/02/2023", "", 300)).toThrow("You have insufficient funds to carry out this transaction."); 
+    expect(bankAccount.allTransactions).toHaveLength(0);
+    expect(bankAccount.balance).toBe(0);
   });
 
 });
