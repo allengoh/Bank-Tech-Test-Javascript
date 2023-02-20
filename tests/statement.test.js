@@ -9,6 +9,6 @@ describe("Statement Class", () => {
   
   it("returns an empty statement without transactions", () => {
     const statement = new Statement();
-    expect(statement.print()).toBe("date || credit || debit || balance\n");
+    expect(statement.print()).toBe("date || credit || debit || balance");
   })
 });

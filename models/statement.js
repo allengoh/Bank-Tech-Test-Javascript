@@ -4,9 +4,12 @@ class Statement {
     this.header = "date || credit || debit || balance";
   };
 
-  print(statement = "") {
-    return(`${this.header}\n` + `${statement}`);
-  }  
+  print(statement = []) {
+    if(statement.length === 0) {
+      return(`${this.header}`);
+    };
+  };
 };
 
 module.exports = Statement;
+
