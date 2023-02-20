@@ -1,9 +1,9 @@
-require("../models/bankAccount");
+const BankAccount = require("../models/bankAccount");
 
 describe("Bank Account", () => {
 
   it("constructs", () => {
-    bankAccount = new BankAccount();
+    const bankAccount = new BankAccount();
     expect(bankAccount.balance).toBe(0);
   });
 
