@@ -23,6 +23,12 @@ describe("Bank Account", () => {
     expect(bankAccount.allTransactions).toEqual([{date: "20/02/2023", credit: 1000, debit: "", balance: 1000}]);
   });
 
+  it("able to create a debit transaction and stores it in the allTransactions array", () => {
+    const bankAccount = new BankAccount(1000);
+    bankAccount.createTransaction("20/02/2023", "", 200);
+    expect(bankAccount.allTransactions).toEqual([{date: "20/02/2023", credit: "", debit: 200, balance: 800}]);
+  });
+
   it("throws an error if credit is not an integer", () => {
     const bankAccount = new BankAccount();
     expect(() => bankAccount.createTransaction("20/02/2023", "not an integer", "")).toThrow("Please use an integer for credit or debit."); 
