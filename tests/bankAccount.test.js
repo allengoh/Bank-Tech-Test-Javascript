@@ -15,8 +15,12 @@ describe("Bank Account", () => {
   it("constructs with an empty array of transactions", () => {
     const bankAccount = new BankAccount();
     expect(bankAccount.allTransactions).toEqual([]);
-  })
+  });
 
-  
+  it("able to create a transaction and stores it in the allTransactions array", () => {
+    const bankAccount = new BankAccount();
+    bankAccount.createTransaction("20/02/2023", 1000, "");
+    expect(bankAccount.allTransactions).toEqual([{date: "20/02/2023", credit: 1000, debit: "", balance: 1000}]);
+  })
 
 });
