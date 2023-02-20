@@ -25,9 +25,16 @@ describe("Bank Account", () => {
 
   it("throws an error if credit is not an integer", () => {
     const bankAccount = new BankAccount();
-    expect(() => bankAccount.createTransaction("20/02/2023", "not an integer", "")).toThrow("Please use an integer for credit."); 
+    expect(() => bankAccount.createTransaction("20/02/2023", "not an integer", "")).toThrow("Please use an integer for credit or debit."); 
     expect(bankAccount.allTransactions).toHaveLength(0);
     expect(bankAccount.balance).toBe(0);
+  });
+
+  it("throws an error if debit is not an integer", () => {
+    const bankAccount = new BankAccount(1000);
+    expect(() => bankAccount.createTransaction("20/02/2023", "", "not an integer")).toThrow("Please use an integer for credit or debit."); 
+    expect(bankAccount.allTransactions).toHaveLength(0);
+    expect(bankAccount.balance).toBe(1000);
   });
 
 });
