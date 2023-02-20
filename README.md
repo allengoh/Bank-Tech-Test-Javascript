@@ -42,25 +42,28 @@ class BankAccount {
     this.balance = balance;
   };
 
-  deposit(amount, date = new Date()) {
-
-  };
-
-  withdraw(amount, date = new Date()) {
-
-  };
-
 };
 
 module.exports = BankAccount;
 ```
 
-Then, I create a Statement class that functions as the <bold>View</bold>.
+Then, I create a Statement class that functions as the <bold>View</bold>. This class would be responsible for displaying the statement in a formatted way.
 
 Sample code:
 
 ```javascript
 class Statement {
+
+  //this.header will be respons
+  constructor() {
+    this.header = "";
+  };
+
+  print(transactions) {
+
+  };
+
+
 
   
 };
@@ -83,7 +86,19 @@ class Bank {
   constructor(model, view){
     this.model = model;
     this.view = view;  
-  }
+  };
+
+  deposit(amount, date = new Date()) {
+
+  };
+
+  withdraw(amount, date = new Date()) {
+
+  };
+
+  printStatement() {
+
+  };
 };
 ```
 
