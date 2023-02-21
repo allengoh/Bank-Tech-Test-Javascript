@@ -54,7 +54,7 @@ Sample code:
 ```javascript
 class Statement {
 
-  //this.header will be respons
+  //this.header will be responsible for the header of the statement eg. date, credit, debit, balance
   constructor() {
     this.header = "";
   };
@@ -101,4 +101,11 @@ class Bank {
   };
 };
 ```
+### Quick start
+
+* Clone this repository
+* Enter `npm install` in the terminal
+* Enter `node` in the terminal
+
+
 
