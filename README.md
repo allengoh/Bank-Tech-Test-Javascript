@@ -30,7 +30,7 @@ I would like to be able to print out a statement
 
 This application will be based on the Model-View-Controller (MVC) design pattern.
 
-First, I create a BankAccount class that functions as the <bold>Model</bold>. This class would hold the data of all transactions occured.
+First, I create a BankAccount class that functions as the <b>Model</b>. This class would hold the data of all transactions occured.
 
 Sample code: 
 
@@ -47,7 +47,7 @@ class BankAccount {
 module.exports = BankAccount;
 ```
 
-Then, I create a Statement class that functions as the <bold>View</bold>. This class would be responsible for displaying the statement in a formatted way.
+Then, I create a Statement class that functions as the <b>View</b>. This class would be responsible for displaying the statement in a formatted way.
 
 Sample code:
 
@@ -56,7 +56,7 @@ class Statement {
 
   //this.header will be responsible for the header of the statement eg. date, credit, debit, balance
   constructor() {
-    this.header = "";
+    this.header = "date || credit || debit || balance";
   };
 
   print(transactions) {
@@ -71,7 +71,7 @@ class Statement {
 module.exports = Statement;
 ```
 
-Lastly, I create a Bank class that functions as the <bold>Controller</bold>.
+Lastly, I create a Bank class that functions as the <b>Controller</b>.
 
 Sample code:
 
