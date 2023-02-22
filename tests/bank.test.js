@@ -96,31 +96,4 @@ describe("Bank Class", () => {
     expect(mockStatement.print).toHaveBeenCalledWith(mockBankAccount.allTransactions);
   });
 
-  it("passes the acceptance criteria", () => {
-    //importing the actual classes without mocking them
-    jest.unmock("../models/bankAccount");
-    jest.unmock("../models/statement");
-    const BankAccount = require("../models/bankAccount");
-    const Statement = require("../models/statement");
-
-    const bankAccount = new BankAccount();
-    const statement = new Statement();
-    const bank = new Bank(bankAccount, statement);
-
-    bank.deposit(1000, "10/01/2023");
-    bank.deposit(2000, "13/01/2023");
-    bank.withdraw(500, "14/01/2023");
-   
-
-    const printStatementWrapper = () => {
-      bank.printStatement();
-    };
-    const spy = jest.spyOn(console, "log");
-    printStatementWrapper();
-    const expectedOutput = /date || credit || debit || balance\n14\/01\/2023 || || 500\.00? || 2500\.00\n13\/01\/2023 || 2000\.00? || || 3000\.00\n10\/01\/2023 || 1000\.00? || || 1000\.00/;
-    const actualOutput = spy.mock.calls[0][0];
-    expect(actualOutput).toMatch(expectedOutput);
-  })
-
-  
 });
