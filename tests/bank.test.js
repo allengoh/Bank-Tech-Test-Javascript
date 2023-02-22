@@ -53,12 +53,20 @@ describe("Bank Class", () => {
     expect(consoleSpy).toHaveBeenCalledWith("The amount of 500 has been successfully deposited on 10/12/2023");
   });
 
-  it("able to withdraw money with date of a transaction where it is a month with single digit", () => {
+  it("able to withdraw money", () => {
     const mockBankAccount = new BankAccount(1000);
     const bank = new Bank(mockBankAccount, mockStatement);
     const consoleSpy = jest.spyOn(console, "log");
     bank.withdraw(300);
     expect(consoleSpy).toHaveBeenCalledWith(`The amount of 300 has been successfully withdrawn on ${formattedDate(new Date())}`);
+  });
+
+  it("able to withdraw money with date of a transaction where it is a month with single digit", () => {
+    const mockBankAccount = new BankAccount(1000);
+    const bank = new Bank(mockBankAccount, mockStatement);
+    const consoleSpy = jest.spyOn(console, "log");
+    bank.withdraw(300, "21/02/2023");
+    expect(consoleSpy).toHaveBeenCalledWith("The amount of 300 has been successfully withdrawn on 21/02/2023");
   });
 
   it("able to withdraw money with date of a transaction where it is a month with double digit", () => {
