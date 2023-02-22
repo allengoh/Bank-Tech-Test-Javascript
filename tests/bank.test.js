@@ -10,6 +10,17 @@ const Statement = require("../models/statement");
 
 const mockStatement = new Statement();
 
+//Added this function to convert a new Date() to dd/mm/yyyy format when the test default to the current date
+const formattedDate = (date) => {
+  let { day, month, year } = {
+    day: date.getDate(),
+    month: date.getMonth() + 1,
+    year: date.getFullYear(),
+  };
+  month = `${month}`.padStart(2, '0');
+  return `${day}/${month}/${year}`;
+};
+
 describe("Bank Class", () => {
 
   it("constructs", () => {
@@ -23,7 +34,7 @@ describe("Bank Class", () => {
     const bank = new Bank(mockBankAccount, mockStatement);
     const consoleSpy = jest.spyOn(console, "log");
     bank.deposit(100);
-    expect(consoleSpy).toHaveBeenCalledWith("The amount of 100 has been successfully deposited on 20/02/2023");
+    expect(consoleSpy).toHaveBeenCalledWith(`The amount of 100 has been successfully deposited on ${formattedDate(new Date())}`);
   });
 
   it("able to deposit money with date of transaction where it is a month with single digit", () => {
@@ -47,7 +58,7 @@ describe("Bank Class", () => {
     const bank = new Bank(mockBankAccount, mockStatement);
     const consoleSpy = jest.spyOn(console, "log");
     bank.withdraw(300);
-    expect(consoleSpy).toHaveBeenCalledWith("The amount of 300 has been successfully withdrawn on 20/02/2023");
+    expect(consoleSpy).toHaveBeenCalledWith(`The amount of 300 has been successfully withdrawn on ${formattedDate(new Date())}`);
   });
 
   it("able to withdraw money with date of a transaction where it is a month with double digit", () => {
