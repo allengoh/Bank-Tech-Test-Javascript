@@ -80,9 +80,9 @@ describe("Bank Class", () => {
   it("prints statement", () => {
     const mockBankAccount = {
       allTransactions: [
-        { date: '01/01/2022', credit: 100, debit: '', balance: 100 },
-        { date: '02/01/2022', credit: '', debit: 50, balance: 50 },
-        { date: '03/01/2022', credit: 200, debit: '', balance: 250 },
+        { date: "01/01/2022", credit: 100, debit: "", balance: 100 },
+        { date: "02/01/2022", credit: '', debit: 50, balance: 50 },
+        { date: "03/01/2022", credit: 200, debit: "", balance: 250 },
       ],
       createTransaction: jest.fn(),
     };
@@ -95,4 +95,6 @@ describe("Bank Class", () => {
     bank.printStatement();
     expect(mockStatement.print).toHaveBeenCalledWith(mockBankAccount.allTransactions);
   });
+
+  
 });
