@@ -1,3 +1,6 @@
+const BankAccount = require("./bankAccount");
+const Statement = require("./statement");
+
 class Bank {
   
   constructor(model, view) {
@@ -5,12 +8,9 @@ class Bank {
     this.statement = view;
   };
 
-  deposit(amount, date = new Date()) {
-    let credit = amount;
-    let debit = "";
-    let formattedDate;
+  #formattedDate(date) {
     if (typeof date === "string") {
-      formattedDate = date;
+      return formattedDate = date;
     } else {
       let { day, month, year } = {
         day: date.getDate(),
@@ -18,8 +18,15 @@ class Bank {
         year: date.getFullYear(),
       };
       month = `${month}`.padStart(2, '0');
-      formattedDate = `${day}/${month}/${year}`;
+      return formattedDate = `${day}/${month}/${year}`;
     };
+  }
+
+  deposit(amount, date = new Date()) {
+    let credit = amount;
+    let debit = "";
+    let formattedDate;
+    this.#formattedDate(date);
     this.bankAccount.createTransaction(formattedDate, credit, debit);
     console.log(`The amount of ${amount} has been successfully deposited on ${formattedDate}`);
   };
@@ -50,3 +57,5 @@ class Bank {
 };
 
 module.exports = Bank;
+
+
