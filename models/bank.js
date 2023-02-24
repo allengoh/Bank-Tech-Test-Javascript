@@ -7,7 +7,8 @@ class Bank {
     this.bankAccount = model;
     this.statement = view;
   };
-
+  
+  //private function to formate new Date() to dd/mm/yyyy
   #formattedDate(date) {
     if (typeof date === "string") {
       return date;
