@@ -63,7 +63,11 @@ class BankAccount {
     this.allTransactions = [];
     this.balance = balance;
   };
-
+  
+  createTransactions(date, credit, debit) {
+  
+  };
+  
 };
 
 module.exports = BankAccount;
@@ -84,9 +88,6 @@ class Statement {
   print(transactions) {
 
   };
-
-
-
   
 };
 
@@ -121,6 +122,7 @@ class Bank {
   printStatement() {
 
   };
+  
 };
 ```
 
@@ -144,12 +146,14 @@ Example usage:
 ### Dependencies
 
 This project uses:
-`jest` for testing
-build in `jest --coverage`for code coverage analysis
-`nodemon` to restart node with any changes in code
+- `jest` for testing
+- build in `jest --coverage`for code coverage analysis
+- `nodemon` to restart node with any changes in code
 
-package.json
+
 ```javascript
+//package.json
+
 "dependencies": {
     "jest": "^29.3.1",
     "nodemon": "^2.0.20"
