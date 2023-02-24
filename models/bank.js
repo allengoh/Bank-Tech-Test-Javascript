@@ -10,7 +10,7 @@ class Bank {
 
   #formattedDate(date) {
     if (typeof date === "string") {
-      return formattedDate = date;
+      return date;
     } else {
       let { day, month, year } = {
         day: date.getDate(),
@@ -18,15 +18,14 @@ class Bank {
         year: date.getFullYear(),
       };
       month = `${month}`.padStart(2, '0');
-      return formattedDate = `${day}/${month}/${year}`;
+      return `${day}/${month}/${year}`;
     };
   }
 
   deposit(amount, date = new Date()) {
     let credit = amount;
     let debit = "";
-    let formattedDate;
-    this.#formattedDate(date);
+    let formattedDate = this.#formattedDate(date);
     this.bankAccount.createTransaction(formattedDate, credit, debit);
     console.log(`The amount of ${amount} has been successfully deposited on ${formattedDate}`);
   };
@@ -34,18 +33,7 @@ class Bank {
   withdraw(amount, date = new Date()) {
     let credit = "";
     let debit = amount;
-    let formattedDate;
-    if (typeof date === "string") {
-      formattedDate = date;
-    } else {
-      let { day, month, year } = {
-        day: date.getDate(),
-        month: date.getMonth() + 1,
-        year: date.getFullYear(),
-      };
-      month = `${month}`.padStart(2, '0');
-      formattedDate = `${day}/${month}/${year}`;
-    };
+    let formattedDate = this.#formattedDate(date);
     this.bankAccount.createTransaction(formattedDate, credit, debit);
     console.log(`The amount of ${amount} has been successfully withdrawn on ${formattedDate}`);
   };
